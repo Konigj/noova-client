@@ -1,16 +1,30 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: #FFF;
+  color: #373A3C; 
+
 }
 
-a {
+a,button {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
-* {
-  box-sizing: border-box;
+img {
+  max-width: 100%;
 }
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+

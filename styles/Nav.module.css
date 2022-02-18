@@ -1,0 +1,14 @@
+.navLink{
+    @apply
+    font-bold text-my-blue 
+    border-b-2 border-transparent
+    lg:text-white lg:opacity-80
+    hover:opacity-100 hover:border-white
+}
+
+.navLinkActive {
+    /* eslint-disable-next-line */
+    @apply
+    border-white opacity-100
+}
+
