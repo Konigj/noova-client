@@ -1,4 +1,4 @@
-.navLink{
+.navLinkHome{
     @apply
     font-bold text-my-blue 
     border-b-2 border-transparent
@@ -6,9 +6,31 @@
     hover:opacity-100 hover:border-white
 }
 
-.navLinkActive {
+.navLinkActiveHome {
     /* eslint-disable-next-line */
     @apply
     border-white opacity-100
 }
+
+.navLink{
+    @apply
+    font-bold text-white 
+    border-b-2 border-transparent
+    lg:text-my-blue lg:opacity-80
+    hover:opacity-100 hover:border-my-blue
+}
+.sideLink{
+    @apply
+    font-bold text-my-blue 
+    border-b-2 border-transparent
+    hover:opacity-100 hover:border-my-blue
+}
+
+.navLinkActive {
+    /* eslint-disable-next-line */
+    @apply
+    border-my-blue opacity-100
+}
+
+
 

@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Navigation from './Navigation'
 import SideBar from './SideBar'
+import NoovaWhiteLogo from '../svgs/white-shadow-logo.svg'
+import NoovaBlueLogo from '../svgs/blue-shadow-logo.svg'
 
 
-const Header = () => {
+const Header = ({pageTitle}: any) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,17 +28,20 @@ const Header = () => {
 })
 
   return (
-    <header className='flex flex-col min-h-16 lg:h-20 lg:my-8 bg-red-200'>
-        <div className='container relative flex py-4 px-8 justify-between h-full items-center'>
+    <header className={`flex flex-col min-h-16 lg:min-h-20 lg:py-8 ${pageTitle==='Inicio' && isOpen==false? 'bg-gradient-to-r from-cyan-500 to-my-blue' :'bg-white'} `}>
+        <div className='container relative flex py-4 sm:px-8 justify-between h-full items-center'>
             <Link href='/' passHref>
-                <a className='w-[150px] h-[30] lg:w-[200px] lg:h-[40px] my-auto flex hover:scale-105 transition-transform duration-300 '>
-                    <Image src='/images/logos/white-shadow-logo.png' width='200' height={40} alt='logo'/>
+                <a className='w-[150px] h-[40] lg:w-[200px] lg:h-[40px] my-auto flex hover:scale-105 transition-transform duration-300 '>
+                  {pageTitle === 'Inicio' && isOpen === false? (<NoovaWhiteLogo height='100%' width='100%'/>
+                  ):(<NoovaBlueLogo height='100%' width='100%'/>)
+
+                  }
                 </a>
             </Link>
-            <Navigation toggleMenu={toggleMenu} isOpen={isOpen}/>
+            <Navigation pageTitle={pageTitle} toggleMenu={toggleMenu} isOpen={isOpen}/>
         </div>
             {
-              isOpen && <SideBar/>
+              isOpen && <SideBar toggleMenu={toggleMenu}/>
             }
     </header>
   )

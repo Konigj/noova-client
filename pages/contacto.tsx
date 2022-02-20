@@ -2,7 +2,7 @@ import Layout from "../components/Layout/Layout";
 
 const Contacto = () => {
   return (
-    <Layout pageTitle='Inicio'>
+    <Layout pageTitle='Contacto'>
         Contacto
     </Layout>
   )

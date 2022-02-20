@@ -17,10 +17,9 @@ const Layout = ({children, pageTitle}: LayoutProps) => {
             <link rel="icon" href="/favicon.ico" />
             <meta name="twitter:site" content="@JuanReyAl"/>
             <meta name="twitter:creator" content="@JuanReyAl"/>
-            
         </Head>
 
-        <Header/>
+        <Header pageTitle={pageTitle} />
             {children}
         <Footer/>
     </>

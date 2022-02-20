@@ -1,0 +1,16 @@
+.footerBorder{
+    @apply
+    border-solid border border-black/10
+    my-5
+}
+
+.footerLink {
+    @apply
+    mb-5
+    opacity-70 hover:opacity-100
+}
+
+.SocialIcon{
+    @apply
+    opacity-50 hover:opacity-100
+}

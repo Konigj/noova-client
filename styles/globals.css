@@ -28,3 +28,8 @@ ul{
   padding: 0;
 }
 
+
+.opacity70-100{
+  @apply
+  opacity-70 hover:opacity-100
+}
