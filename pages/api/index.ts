@@ -12,7 +12,7 @@ type HomeData = {
   }
 
 export const getHomeData = async () => {
-    const url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+    const url = 'https://noova-server.herokuapp.com';
     const result = await axios.get(`${url}/homepage`)
     const homeData : HomeData = result.data
     return homeData

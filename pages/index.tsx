@@ -9,17 +9,6 @@ import { Url } from 'url'
 import { ReactChildren } from 'react'
 import { AppProps } from 'next/dist/shared/lib/router/router'
 
-interface HomeData {
-    hero_title: string,
-    hero_description: string,
-    hero_image: object,
-    features_title: string,
-    featuresIndex: object,
-    slider_title: string,
-    cta_title: string,
-    cta_description: string,
-}
-
 
 const Home: NextPage = ({homeData} : any) => {
 
@@ -60,19 +49,18 @@ export default Home;
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const response = await fetch('https://noova-server.herokuapp.com/homepage');
-  // const homeData: HomeData = await response.json()
-
+  
   try {
     const result = await getHomeData()
     
     return{
       props: {
         homeData: result,
-      }
+      }, revalidate: 10,
     }
     
   } catch (error) {
+    console.log(error)
     return {
       notFound: true,
     }
