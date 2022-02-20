@@ -7,7 +7,15 @@ import ClosedMenu from '../svgs/closed-menu.svg'
 
 import styles from '../../styles/Nav.module.css'
 
-const Navigation = ({toggleMenu, isOpen}) => {
+type Props = {
+  toggleMenu: Function,
+  isOpen: boolean,
+}
+
+
+const Navigation = ({toggleMenu, isOpen}: Props) => {
+
+  console.log(isOpen)
 
     const router = useRouter();
 
