@@ -1,4 +1,4 @@
-
+import type { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -7,27 +7,25 @@ import Link from 'next/link'
 import {getHomeData} from './api'
 import { Url } from 'url'
 import { ReactChildren } from 'react'
+import { AppProps } from 'next/dist/shared/lib/router/router'
 
-// type HomeData = {
-//   hero_title: string,
-//     hero_description: string,
-//     hero_image: object,
-//     features_title: string,
-//     featuresIndex: object,
-//     slider_title: string,
-//     cta_title: string,
-//     cta_description: string,
-// }
+interface HomeData {
+    hero_title: string,
+    hero_description: string,
+    hero_image: object,
+    features_title: string,
+    featuresIndex: object,
+    slider_title: string,
+    cta_title: string,
+    cta_description: string,
+}
 
-// type home = {
-//   homeData: ReactChildren
-// }
 
-const Home = ({homeData}) => {
+const Home: NextPage = ({homeData} : any) => {
 
   const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, cta_title, cta_description} = homeData;
 
-  const urlHero = hero_image.url;
+  const urlHero : string = hero_image.url;
 
   return (
     <Layout pageTitle='Inicio' >
@@ -61,7 +59,7 @@ export default Home;
 
 
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // const response = await fetch('https://noova-server.herokuapp.com/homepage');
   // const homeData: HomeData = await response.json()
 
