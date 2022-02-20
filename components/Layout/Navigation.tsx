@@ -7,8 +7,12 @@ import ClosedMenu from '../svgs/closed-menu.svg'
 
 import styles from '../../styles/Nav.module.css'
 
+interface NavigationProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+}
+
 type Props = {
-  toggleMenu: Function,
+  toggleMenu: React.MouseEventHandler<HTMLButtonElement>,
   isOpen: boolean,
 }
 
