@@ -7,10 +7,6 @@ import ClosedMenu from '../svgs/closed-menu.svg'
 
 import styles from '../../styles/Nav.module.css'
 
-interface NavigationProps {
-  onClick: React.MouseEventHandler<HTMLButtonElement>
-}
-
 type Props = {
   toggleMenu: React.MouseEventHandler<HTMLButtonElement>,
   isOpen: boolean,
@@ -18,8 +14,6 @@ type Props = {
 
 
 const Navigation = ({toggleMenu, isOpen}: Props) => {
-
-  console.log(isOpen)
 
     const router = useRouter();
 

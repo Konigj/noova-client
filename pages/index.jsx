@@ -1,27 +1,29 @@
-import type { NextPage } from 'next'
+
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout/Layout'
 import Link from 'next/link'
-import {getHomeData} from '../pages/api'
+import {getHomeData} from './api'
+import { Url } from 'url'
+import { ReactChildren } from 'react'
 
-type HomeData = {
-  hero_title: string,
-    hero_description: string,
-    hero_image: object,
-    features_title: string,
-    featuresIndex: object,
-    slider_title: string,
-    cta_title: string,
-    cta_description: string,
-}
+// type HomeData = {
+//   hero_title: string,
+//     hero_description: string,
+//     hero_image: object,
+//     features_title: string,
+//     featuresIndex: object,
+//     slider_title: string,
+//     cta_title: string,
+//     cta_description: string,
+// }
 
-const Home: NextPage = ({homeData} : HomeData) => {
+// type home = {
+//   homeData: ReactChildren
+// }
 
-  console.log(homeData)
-  
-  
+const Home = ({homeData}) => {
 
   const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, cta_title, cta_description} = homeData;
 
@@ -59,7 +61,7 @@ export default Home;
 
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   // const response = await fetch('https://noova-server.herokuapp.com/homepage');
   // const homeData: HomeData = await response.json()
 
