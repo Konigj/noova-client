@@ -1,18 +1,31 @@
 import type { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
-import axios from 'axios'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Layout from '../components/Layout/Layout'
 import Link from 'next/link'
+import {getHomeData} from '../pages/api'
 
-interface Props {
-  homeData: object
+type HomeData = {
+  hero_title: string,
+    hero_description: string,
+    hero_image: object,
+    features_title: string,
+    featuresIndex: object,
+    slider_title: string,
+    cta_title: string,
+    cta_description: string,
 }
 
-const Home: NextPage <Props> = ({homeData}) => {
+const Home: NextPage = ({homeData} : HomeData) => {
+
+  console.log(homeData)
+  
+  
 
   const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, cta_title, cta_description} = homeData;
+
+  const urlHero = hero_image.url;
 
   return (
     <Layout pageTitle='Inicio' >
@@ -28,7 +41,7 @@ const Home: NextPage <Props> = ({homeData}) => {
 
           <div className='lg:w-1/2'>
             
-            <Image priority src={`https://noova-server.herokuapp.com${hero_image.url}`} width='500px' height='500px' alt='Hero Image'/>
+            <Image src={urlHero} priority width='500px' height='500px' alt='Hero Image'/>
 
           </div>
 
@@ -44,27 +57,18 @@ const Home: NextPage <Props> = ({homeData}) => {
 
 export default Home;
 
-type HomeData = {
-  hero_description: string,
-  hero_title: string,
-  features_title: string,
-  slider_title: string,
-  cta_title: string,
-  cta_description: number,
-  featuresIndex: object
-}
+
 
 export const getStaticProps: GetStaticProps = async () => {
   // const response = await fetch('https://noova-server.herokuapp.com/homepage');
   // const homeData: HomeData = await response.json()
 
   try {
-    const result = await axios.get('https://noova-server.herokuapp.com/homepage')
-    const homeData : HomeData = result.data
+    const result = await getHomeData()
     
     return{
       props: {
-        homeData,
+        homeData: result,
       }
     }
     
@@ -72,7 +76,5 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       notFound: true,
     }
-    
   }
-  
 }

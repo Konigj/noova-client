@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains: ['noova-server.herokuapp.com']
+    domains: ['noova-server.herokuapp.com', 'res.cloudinary.com']
   },
   webpack(config){
     config.module.rules.push({
