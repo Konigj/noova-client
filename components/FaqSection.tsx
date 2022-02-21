@@ -1,9 +1,21 @@
 import Image from "next/image"
-import Faq from "./faq"
+import Faq from "./Faq"
 
-const FaqSection = ({faqSection}:any) => {
+interface Props {
+    faqSection:{
+        faq_section_icon:{
+            url:string
+        },
+        faq_section_title:string,
+        q_and_a:[any],
+    }
+}
+
+const FaqSection = ({faqSection}:Props) => {
 
     const {faq_section_icon, faq_section_title, q_and_a} = faqSection
+
+
   return (
       <div>
         <div className="flex flex-row gap-5 mt-10">

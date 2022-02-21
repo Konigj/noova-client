@@ -1,7 +1,18 @@
 import Image from "next/image";
 import Feature from "./Feature";
 
-const FeatureSection = ({featureSection}: any) => {
+interface Props{
+    featureSection:{
+        feature_image:{
+            url:string
+        },
+        feature_title:string,
+        id: number,
+        subFeatures:[any]
+    }
+}
+
+const FeatureSection = ({featureSection}: Props) => {
     const {feature_image, feature_title, id, subFeatures} = featureSection;
   return (
     <div className='flex flex-col lg:flex-row items-center gap-12 py-10'>

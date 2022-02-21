@@ -12,7 +12,7 @@ const DELETING_INTERVAL = 50
 
  const useTypedText = ( texts: string[]) => {
     const [phase, setPhase] = useState(Phase.Typing)
-    const [typedText, setTypedText] = useState(' ')
+    const [typedText, setTypedText] = useState('')
     useEffect(() => {
 
         switch(phase) {

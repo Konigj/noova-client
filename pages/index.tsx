@@ -1,4 +1,3 @@
-
 import type { NextPage } from 'next'
 import { GetStaticProps} from 'next'
 import Link from 'next/link'
@@ -20,9 +19,30 @@ import styles from '../styles/Home.module.css'
 
 const texts = ['para tu negocio.', 'para tu emprendimiento.', 'para ti.', 'para tu empresa.', 'para tu equipo.']
 
-const Home: NextPage = ({homeData, productsData} : any) => {
+interface Props {
+  homeData:{
+    hero_title:string,
+    hero_description:string,
+    hero_image:{
+      url:string
+    },
+    features_title:string,
+    featuresIndex:[any], 
+    slider_title:string,
+    slider_gallery:{url:string}[],
+    cta_title:string,
+    cta_description:string,
+    cta_image:{
+       url:string
+          }
+  },
+  productsData:[any]
+}
+
+const Home = ({homeData, productsData} : Props) => {
 
   const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, slider_gallery, cta_title, cta_description, cta_image} = homeData;
+
 
   const typedText = useTypedText(texts)
   return (
@@ -31,12 +51,20 @@ const Home: NextPage = ({homeData, productsData} : any) => {
         <section className='relative w-full py-12 lg:pb-24 bg-gradient-to-r from-cyan-500 to-my-blue'>
          <div className='container flex flex-col lg:flex-row gap-12'>
 
-          <div className='flex flex-1 flex-col lg:items-start lg:w-1/2 z-10 text-white'>
-            <h1 className='text-3xl lg:text-5xl font-extrabold lg:mt-20 py-4' >{hero_title}</h1>
-            <h2 className={`${styles.typing} text-2xl lg:text-4xl font-bold`}>{typedText}</h2>
-            <p className='my-5 lg:my-10 lg:text-xl' >{hero_description}</p>
-            <Link href='/tienda'>
-              Compra Ahora</Link>
+          <div className='flex flex-1 flex-col lg:items-start lg:w-1/2 z-10 text-white min-h-[300px]'>
+            <h1 className='text-3xl lg:text-5xl font-extrabold lg:mt-20 pb-4' >{hero_title}</h1>
+            <div className='min-h-[32px] lg:min-h-[40px]'>
+              <h2 className={`${styles.typing} text-2xl lg:text-4xl font-bold`}>{typedText}</h2>
+            </div>
+            <p className='my-4 lg:my-8 lg:text-xl' >{hero_description}</p>
+            <Link href='/tienda' passHref>
+              <div className='bg-white my-5 lg:my-10 py-1 lg:text-xl rounded-md hover:bg-gradient-to-r mx-auto lg:mx-0 hover:from-gray-700 hover:via-gray-900 hover:to-black transition-colors'>
+                <a className=' text-transparent bg-clip-text p-2 hover:text-white font-bold text-center  px-8
+                bg-gradient-to-r  from-gray-700 via-gray-900 to-black
+                '>Compra Ahora</a>
+              </div>
+              
+              </Link>
           </div>
 
           <div className='lg:w-1/2'>

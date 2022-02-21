@@ -1,8 +1,15 @@
 
+import { GetStaticProps} from 'next'
 import axios from 'axios'
 import FaqSection from '../components/FaqSection'
 import Layout from '../components/Layout/Layout'
-const Ayuda = ({faqsData}) => {
+
+
+interface Props{
+  faqsData:[any]
+}
+
+const Ayuda = ({faqsData}: Props) => {
 
   return (
     <Layout pageTitle='Ayuda'>
