@@ -168,18 +168,6 @@ const Home = ({homeData, productsData} : Props) => {
 
 export default Home;
 
-
-// type HomeData = {
-//   hero_title: string,
-//   hero_description: string,
-//   hero_image: object,
-//   features_title: string,
-//   featuresIndex: any[],
-//   slider_title: string,
-//   cta_title: string,
-//   cta_description: string,
-// }
-
 export const getStaticProps: GetStaticProps = async () => {
   
   try {
@@ -187,7 +175,6 @@ export const getStaticProps: GetStaticProps = async () => {
       axios.get('https://noova-server.herokuapp.com/homepage'),
       axios.get('https://noova-server.herokuapp.com/products')
     ])
-
     return{
       props: {
         homeData: homeRes.data,
