@@ -11,11 +11,25 @@ type HomeData = {
     cta_description: string,
   }
 
-export const getHomeData = async () => {
-    const url = 'https://noova-server.herokuapp.com';
-    const result = await axios.get(`${url}/homepage`)
-    const homeData : HomeData = result.data
-    return homeData
-}
+  export const getStrapiData = async () => {
+    const [homeRes, productsRes] = await Promise.all([
+      axios.get('https://noova-server.herokuapp.com/homepage'),
+      axios.get('https://noova-server.herokuapp.com/products')
+    ])
+    const homeData = homeRes.data
+    const productsData = productsRes.data
+    return [homeData, productsData]
+  }
 
-  
+  // export const getStrapiData = async () => {
+  //   const [homeRes, productsRes] = await Promise.all([
+  //     fetch('https://noova-server.herokuapp.com/homepage'),
+  //     fetch('https://noova-server.herokuapp.com/products')
+  //   ]);
+
+  //   const [homeData, productsData] = await Promise.all([
+  //     homeRes.json(),
+  //     productsRes.json()
+  //   ])
+  //   return [homeData, productsData]
+  // }

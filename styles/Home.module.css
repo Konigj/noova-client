@@ -4,7 +4,13 @@
   height: 5%;
   width: 1px;
   border-right: 4px solid white;
-  animation: blink 0.7s infinite ease;
+  animation: blink 1s infinite ease;
+}
+
+.sectionTitle{
+  @apply
+  font-bold text-center
+  text-3xl lg:text-4xl
 }
 
 @keyframes blink{
