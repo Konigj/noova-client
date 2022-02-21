@@ -1,7 +1,6 @@
 import Image from "next/image"
 
 const Feature = ({feature} :any) => {
-    console.log(feature)
     const {subfeature_title, subfeature_description,subfeature_icon } = feature;
   return (
     <div className='flex flex-row flex-col-2'>
@@ -13,4 +12,4 @@ const Feature = ({feature} :any) => {
   )
 }
 
-export default Feature
+export default Feature;

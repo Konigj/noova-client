@@ -3,10 +3,6 @@ import Feature from "./Feature";
 
 const FeatureSection = ({featureSection}: any) => {
     const {feature_image, feature_title, id, subFeatures} = featureSection;
-    console.log(id)
-    if(id % 2 === 0) {
-        console.log(true)
-    }
   return (
     <div className='flex flex-col lg:flex-row items-center gap-12 py-10'>
 

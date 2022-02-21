@@ -33,3 +33,28 @@ ul{
   @apply
   opacity-70 hover:opacity-100
 }
+
+input, select, textarea{
+    @apply
+    border-gray-300
+    border-[0.5px]
+    border-solid
+    w-full 
+    rounded
+    text-base
+    px-4
+    focus:border-gray-800
+
+}
+.submit-button-container {
+    @apply
+    w-full my-5 flex justify-center
+}
+.submit-button-container button {
+    @apply
+    rounded-md py-1 px-5 hover:scale-105
+    font-bold text-xl tracking-wide
+    text-white 
+    bg-gradient-to-r from-gray-700  via-gray-900 to-black
+}
+ 

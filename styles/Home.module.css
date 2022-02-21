@@ -7,12 +7,6 @@
   animation: blink 1s infinite ease;
 }
 
-.sectionTitle{
-  @apply
-  font-bold text-center
-  text-3xl lg:text-4xl
-}
-
 @keyframes blink{
   0%{
       opacity: 0;
@@ -20,4 +14,10 @@
   100%{
       opacity:1;
   }
+}
+
+.sectionTitle{
+  @apply
+  font-bold text-center
+  text-3xl lg:text-4xl
 }

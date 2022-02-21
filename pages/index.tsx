@@ -1,36 +1,46 @@
+
 import type { NextPage } from 'next'
 import { GetStaticProps} from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
 
+import {Autoplay , EffectCoverflow, Pagination} from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import "swiper/css/pagination";
+
 import Layout from '../components/Layout/Layout'
 import ProductsList from '../components/ProductsList'
+import FeatureSection from '../components/FeatureSection'
+import useTypedText from '../hooks/useTypedText'
 
 import styles from '../styles/Home.module.css'
-import FeatureSection from '../components/featureSection'
 
+
+const texts = ['para tu negocio.', 'para tu emprendimiento.', 'para ti.', 'para tu empresa.', 'para tu equipo.']
 
 const Home: NextPage = ({homeData, productsData} : any) => {
 
-  const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, cta_title, cta_description} = homeData;
-  const urlHero : string = hero_image.url;
+  const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, slider_gallery, cta_title, cta_description, cta_image} = homeData;
 
+  const typedText = useTypedText(texts)
   return (
-    <Layout pageTitle='Inicio' >
+    <Layout pageTitle='Inicio'>
       <main>
         <section className='relative w-full py-12 lg:pb-24 bg-gradient-to-r from-cyan-500 to-my-blue'>
          <div className='container flex flex-col lg:flex-row gap-12'>
+
           <div className='flex flex-1 flex-col lg:items-start lg:w-1/2 z-10 text-white'>
             <h1 className='text-3xl lg:text-5xl font-extrabold lg:mt-20 py-4' >{hero_title}</h1>
-            <h2 className={`${styles.typing} text-2xl lg:text-4xl font-bold`}>para tu negocio.</h2>
+            <h2 className={`${styles.typing} text-2xl lg:text-4xl font-bold`}>{typedText}</h2>
             <p className='my-5 lg:my-10 lg:text-xl' >{hero_description}</p>
             <Link href='/tienda'>
               Compra Ahora</Link>
           </div>
 
           <div className='lg:w-1/2'>
-            <Image src={urlHero} priority width='500px' height='500px' alt='Hero Image'/>
+            <Image src={hero_image.url} priority width='500px' height='500px' alt='Hero Image'/>
           </div>
          </div>
         </section>
@@ -52,6 +62,75 @@ const Home: NextPage = ({homeData, productsData} : any) => {
               ) )
             }
           </div>
+        </section>
+
+        <section className='py-10 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 '>
+          <h1 className={`${styles.sectionTitle} text-white py-5`}>{slider_title}</h1>
+          <div className='container w-full h-full mt-5 select-none'>
+
+            <Swiper 
+            effect={"coverflow"}
+            spaceBetween={10}
+            slidesPerView={3}
+            loop={true}
+            centeredSlides={true}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
+            }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false
+          }}
+            pagination={{
+              dynamicBullets: true,
+            }}
+            modules={[Pagination, EffectCoverflow, Autoplay]}
+            
+            >
+              <SwiperSlide className='py-4'>
+                <Image src={slider_gallery[0].url} width='250px' height='490px' alt='swiper1'/>
+              </SwiperSlide>
+
+              <SwiperSlide className='py-4'>
+                <Image src={slider_gallery[1].url} width='250px' height='490px' alt='swiper2'/>
+              </SwiperSlide>
+
+              <SwiperSlide className='py-4'>
+                <Image src={slider_gallery[2].url} width='250px' height='490px' alt='swiper3'/>
+              </SwiperSlide>
+
+              <SwiperSlide className='py-4'>
+                <Image src={slider_gallery[3].url} width='250px' height='490px' alt='swiper4'/>
+              </SwiperSlide>
+
+              <SwiperSlide className='py-4'>
+                <Image src={slider_gallery[4].url} width='250px' height='490px' alt='swiper5'/>
+              </SwiperSlide>
+            </Swiper>
+            
+          </div>
+            
+        </section>
+
+        <section className=' py-10 container'>
+            <div className='flex flex-col lg:flex-row gap-12 items-center w-full'>
+              <div className='lg:w-1/2'>
+                <Image src={cta_image.url} width="600px" height="500px" alt={cta_title}/>
+              </div>
+              <div className='lg:w-1/2 text-center'>
+                <h4 className='font-bold text-4xl py-5'>{cta_title}</h4>
+                <p className='text-xl opacity-70'>{cta_description}</p>
+                <div className='my-5 lg:my-10 text-center'>
+                  <Link href='/tienda'><a className=' py-2 px-5 font-bold text-xl lg:text-3xl tracking-wide text-white rounded-md
+                  bg-gradient-to-r from-gray-700 via-gray-900 to-black hover:scale-105'>Comprar</a></Link>
+                </div>
+              </div>
+
+            </div>
         </section>
      
       </main>
