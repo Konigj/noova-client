@@ -28,6 +28,12 @@ ul{
   padding: 0;
 }
 
+.sectionTitle{
+  @apply
+  font-bold text-center
+  text-3xl lg:text-4xl
+}
+
 
 .opacity70-100{
   @apply

@@ -76,13 +76,13 @@ const Home = ({homeData, productsData} : Props) => {
         <section className='container my-5 '>
           <div className='text-center py-5'>
             <p>Envíos gratis a toda Colombia</p>
-            <h1 className={`${styles.sectionTitle}`}>Nuestros Productos</h1>
+            <h1 className='sectionTitle'>Nuestros Productos</h1>
           </div>
           <ProductsList productsData={productsData}/>
         </section>
 
         <section className='container py-20'>
-          <h1 className={`${styles.sectionTitle}`}>{features_title}</h1>
+          <h1 className='sectionTitle'>{features_title}</h1>
           <div className='flex flex-col items-center gap-12'>
             {
               featuresIndex.map(featureSection => (
@@ -93,7 +93,7 @@ const Home = ({homeData, productsData} : Props) => {
         </section>
 
         <section className='py-10 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 '>
-          <h1 className={`${styles.sectionTitle} text-white py-5`}>{slider_title}</h1>
+          <h1 className='sectionTitle text-white py-5'>{slider_title}</h1>
           <div className='container w-full h-full mt-5 select-none'>
 
             <Swiper 

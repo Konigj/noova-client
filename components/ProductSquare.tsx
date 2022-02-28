@@ -22,7 +22,7 @@ const ProductSquare = ({product}:any) => {
             <p><span className='font-bold pr-1'>+ </span>Perfil noova</p>
             <p><span className='font-bold pr-1'>+ </span>Envío gratis a Colombia</p>
         </div>
-        <Link href={`/tienda/${id}`}>
+        <Link href={`/tienda/${slug}`}>
             <a className=' mx-auto text-center my-4 py-1 px-5 hover:scale-105 text-white font-bold text-xl tracking-wide rounded-md
             bg-gradient-to-r from-gray-700  via-gray-900 to-black'>Comprar</a>
         </Link>

@@ -35,9 +35,10 @@ export const getStaticPaths = async () => {
     
         const productsRes = await axios.get('https://noova-server.herokuapp.com/products');
         const productsData = productsRes.data
-        const paths = productsData.map( (product:{id:number}) => ({
-            params:{id:product.id.toString()}
+        const paths = productsData.map( (product:{slug:string}) => ({
+            params:{slug:product.slug}
         }))
+        console.log(paths)
         return {
             paths,
             fallback: false,
@@ -46,7 +47,7 @@ export const getStaticPaths = async () => {
 
 
 export const getStaticProps: GetStaticProps = async ({params}:any) => {
-    const urlProduct = `https://noova-server.herokuapp.com/products/${params.id}`
+    const urlProduct = `https://noova-server.herokuapp.com/products/${params.slug}`
      const productData = await axios.get(urlProduct)
 
     return{

@@ -1,0 +1,78 @@
+
+    main .leto::-webkit-scrollbar {
+        width: 10px;
+    }
+    main .leto::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    }
+    main .leto::-webkit-scrollbar{
+        border-radius: 50px;
+        background-color: rgba(243, 244, 246, 0.9);
+    }
+    .leto{
+        @apply
+        w-screen lg:max-w-md
+        lg:mx-auto lg:rounded-2xl
+        select-none overflow-x-hidden
+        bg-fixed
+        }
+    .letoWrapper{
+        @apply
+        w-full
+        min-h-screen
+        bg-no-repeat 
+        bg-fixed
+        bg-cover lg:bg-contain
+
+    }
+    .letoText{
+        @apply
+        text-3xl
+        text-center
+        pt-[50vh]
+    }
+    .letoText h2{
+        @apply
+        text-5xl
+        font-semibold
+        py-2
+    }
+    .letoLinksContainer{
+        @apply
+        flex
+        flex-col
+        text-center
+        max-w-lg
+        mx-auto
+    }
+    .letoLink{
+        box-shadow: rgba(18, 18, 19, 0.3) 0px 3px 8px;
+        @apply
+        m-3
+        p-1
+        rounded-full
+        max-w-full
+        text-xl
+        lg:text-2xl
+        hover:scale-105
+        bg-gradient-to-r
+    }
+    .letoIconsContainer{
+        @apply
+        flex
+        gap-5
+        px-5
+        justify-evenly
+        md:max-w-lg
+        mx-auto
+        py-5
+    }
+    .letoIcon{
+        @apply
+        opacity-80
+        hover:opacity-100
+        hover:animate-bounce
+        hover:scale-105
+    }

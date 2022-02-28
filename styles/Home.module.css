@@ -16,8 +16,3 @@
   }
 }
 
-.sectionTitle{
-  @apply
-  font-bold text-center
-  text-3xl lg:text-4xl
-}

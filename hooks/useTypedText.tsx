@@ -11,13 +11,16 @@ const PAUSE_INTERVAL = 1000
 const DELETING_INTERVAL = 50
 
  const useTypedText = ( texts: string[]) => {
+
+    const [selectedIndex, setSelectedIndex] = useState(0)
+
     const [phase, setPhase] = useState(Phase.Typing)
     const [typedText, setTypedText] = useState('')
     useEffect(() => {
 
         switch(phase) {
             case Phase.Typing:{
-                const nextTypedText = texts[0].slice(0, typedText.length + 1)
+                const nextTypedText = texts[selectedIndex].slice(0, typedText.length + 1)
                 
                 if(nextTypedText === typedText) {
                     setPhase(Phase.Pausing)
@@ -32,10 +35,12 @@ const DELETING_INTERVAL = 50
             }
             case Phase.Deleting:{
                 if(!typedText) {
+                    const nextIndex = selectedIndex + 1
+                    setSelectedIndex(texts[nextIndex]? nextIndex : 0)
                     setPhase(Phase.Typing)
                     return
                 }
-                const nextRemaining = texts[0].slice(0, typedText.length - 1)
+                const nextRemaining = texts[selectedIndex].slice(0, typedText.length - 1)
 
                 const timeout = setTimeout(() =>{
                     setTypedText(nextRemaining)
@@ -54,10 +59,8 @@ const DELETING_INTERVAL = 50
                 
         }
 
-      if(phase === Phase.Pausing) return
-
       
-    }, [texts, typedText, phase])
+    }, [texts, typedText, phase, selectedIndex])
 
     return typedText
   }
