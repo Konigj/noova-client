@@ -16,9 +16,13 @@ interface Props {
         leto_links:[any],
         leto_links_textColor: string,
         leto_links_bgColor:string,
-        leto_icons:[any]
-      }, 
-    }
+        leto_icons:[any],
+        leto_icons_color:string,
+        leto_footer_logo:{
+          url:string
+        }
+          }, 
+        }
   }
 
 
