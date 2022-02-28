@@ -5,7 +5,22 @@ import React from 'react'
 import Logo from '../svgs/white-shadow-logo.svg'
 import styles from '../../styles/profiles/Leto.module.css';
 
-const Leto = ({profile}:any) => {
+interface Props {
+  profile:{
+    leto_bg:{
+      url:string
+    },
+    leto_name:string,
+    leto_name_textColor:string, 
+    leto_links:[any],
+    leto_links_textColor: string,
+    leto_links_bgColor:string,
+    leto_icons:[any]
+
+  }
+}
+
+const Leto = ({profile}:Props) => {
 
   const {leto_bg, leto_name,leto_name_textColor, 
     leto_links, leto_links_textColor, leto_links_bgColor,
@@ -71,7 +86,7 @@ export const LetoIcon = ({icon} :any) => {
 
   return (
     <a href={icon.icon_url} className={`${styles.letoIcon}`}>
-      <Image width="30" height="30" src={icon.icon_image.url}/>
+      <Image width="30" height="30" src={icon.icon_image.url} alt='link'/>
     </a>
   )
 }
