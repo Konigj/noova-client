@@ -4,6 +4,7 @@ import React from 'react'
 
 import Logo from '../svgs/white-shadow-logo.svg'
 import styles from '../../styles/profiles/Leto.module.css';
+import "external-svg-loader";
 
 interface Props {
   profile:{
@@ -15,8 +16,11 @@ interface Props {
     leto_links:[any],
     leto_links_textColor: string,
     leto_links_bgColor:string,
-    leto_icons:[any]
-
+    leto_icons:[any],
+    leto_icons_color:string,
+    leto_footer_logo:{
+      url:string
+    }
   }
 }
 
@@ -24,9 +28,7 @@ const Leto = ({profile}:Props) => {
 
   const {leto_bg, leto_name,leto_name_textColor, 
     leto_links, leto_links_textColor, leto_links_bgColor,
-    leto_icons } = profile;
-
-    console.log(leto_icons)
+    leto_icons, leto_icons_color, leto_footer_logo } = profile;
 
   return (
     <main className={`${styles.leto}`}>
@@ -51,7 +53,7 @@ const Leto = ({profile}:Props) => {
             <ul className={`${styles.letoIconsContainer}`}>
               {
                 leto_icons.map ( icon => (
-                  <LetoIcon key={icon.id} icon={icon} />
+                  <LetoIcon key={icon.id} leto_icons_color={leto_icons_color} icon={icon} />
                 ))
               }
 
@@ -62,7 +64,7 @@ const Leto = ({profile}:Props) => {
             <div className='w-[120px] mx-auto  hover:scale-105'>
               <Link href='/'>
               <a>
-                <Logo height='100%' width='100%'/>
+                <Image src={leto_footer_logo.url}  height='100%' width='100%' alt='noova-footer'/>
               </a>
               </Link>
             </div>
@@ -82,11 +84,11 @@ export const LetoLink = ({link, leto_links_bgColor} :any) => {
      href={link.link_url}>{link.link_name}</a>
   )
 }
-export const LetoIcon = ({icon} :any) => {
+export const LetoIcon = ({icon, leto_icons_color} :any) => {
 
   return (
     <a href={icon.icon_url} className={`${styles.letoIcon}`}>
-      <Image width="30" height="30" src={icon.icon_image.url} alt='link'/>
+      <svg data-src={icon.icon_image.url}  fill={leto_icons_color} width="30" height="30"></svg>
     </a>
   )
 }
