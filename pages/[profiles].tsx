@@ -6,7 +6,22 @@ import Baco from '../components/profiles/Baco';
 
 interface Props {
     profile:{
-      baco?:object,
+      baco?:{
+        baco_bg:string,
+        baco_Image:{
+          url:string
+        }
+        baco_name:string,
+        baco_name_textColor:string,
+        baco_links:[any],
+        baco_links_bg:string,
+        baco_links_textColor:string,
+        baco_icons:[any],
+        baco_icons_color:string,
+        baco_footer_logo:{
+          url:string
+        },
+      }
       leto?:{
         leto_bg:{
           url:string

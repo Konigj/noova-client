@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
 
-import Logo from '../svgs/white-shadow-logo.svg'
 import styles from '../../styles/profiles/Leto.module.css';
 import "external-svg-loader";
 
