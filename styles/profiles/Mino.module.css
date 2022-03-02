@@ -1,0 +1,133 @@
+main .mino::-webkit-scrollbar {
+    width: 10px;
+}
+main .mino::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+}
+main .mino::-webkit-scrollbar{
+    border-radius: 50px;
+    background-color: rgba(243, 244, 246, 0.9);
+    }
+
+.mino{
+    @apply
+    max-w-md
+    select-text
+    mx-auto
+    overflow-x-hidden
+    shadow-2xl
+
+}
+.minoWrapper{
+    @apply
+    h-full
+    w-full
+}
+.minoCover{
+    filter: drop-shadow(0px 9.80536px 9.80536px rgba(0, 0, 0, 0.25));
+    @apply
+    h-96
+    w-full
+    rounded-bl-[10%]
+    overflow-hidden
+}
+.corporativeCoverImage{
+    @apply
+    w-full h-full
+    bg-cover
+}
+.minoLogo{
+    @apply
+    relative
+    -top-12
+    ml-[70%]
+    w-24 h-24
+    rounded-full
+    border-solid
+    border-4
+    bg-cover
+}
+
+.minoText{
+    @apply
+    px-7
+
+}
+
+.minoText h2{
+    @apply
+    text-3xl
+    font-bold
+    -mt-16
+    }
+
+.minoText h4{
+    @apply
+    font-bold
+    text-xl
+}
+
+.minoText h5{
+    @apply
+    font-medium
+    text-lg
+
+}
+
+.minoIconsContainer{
+    @apply
+    flex
+    gap-5
+    px-5
+    justify-evenly
+    mx-auto
+    py-5
+}
+
+
+.minoIcon{
+    @apply
+    w-9
+    h-9
+    bg-[#EEEEEE]
+    rounded-full
+    opacity-80
+    hover:opacity-100
+    hover:animate-bounce
+    hover:scale-105
+}
+
+.minoIcon{
+    @apply
+    flex
+    items-center
+    justify-center
+}
+
+.minoLinksContainer{
+    @apply
+    flex
+    flex-col
+    text-center
+    w-[90%]
+    mx-auto
+}
+.minoLink{
+    box-shadow: rgba(18, 18, 19, 0.3) 0px 3px 8px;
+    @apply
+    p-1
+    my-3
+    rounded-xl
+    max-w-full
+    font-bold
+    text-xl
+    hover:animate-bounce
+}
+
+.mino .profileFooter path, .mino .profileFooter line{
+    @apply
+    fill-my-blue
+    stroke-my-blue
+}

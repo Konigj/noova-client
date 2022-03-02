@@ -1,8 +1,11 @@
 import axios from "axios";
 import { GetStaticProps, GetStaticPaths} from 'next'
 
+import LayoutProfiles from "../components/Layout/LayoutProfiles";
 import Leto from '../components/profiles/Leto';
 import Baco from '../components/profiles/Baco';
+import Juno from '../components/profiles/Juno';
+import Mino from '../components/profiles/Mino';
 
 interface Props {
     profile:{
@@ -13,6 +16,7 @@ interface Props {
         }
         baco_name:string,
         baco_name_textColor:string,
+        baco_description:string,
         baco_links:[any],
         baco_links_bg:string,
         baco_links_textColor:string,
@@ -37,19 +41,33 @@ interface Props {
           url:string
         }
           }, 
-        }
+      juno?:{
+        
+      },
+      mino?: {
+        mino_bg:{
+          url:string
+      },
+         mino_name:string,
+         mino_name_textColor:string,
+         mino_description:string,
+         mino_ubication:string,
+        
+      },
+      slug:string
+    }
   }
 
 
 const Profile = ({profile}:Props) => {
 
   return (
-    <>
+    <LayoutProfiles slug={profile.slug}>
       {profile.leto && <Leto profile={profile.leto}/>}
       {profile.baco && <Baco profile={profile.baco}/>}
-    </>
-
-
+      {profile.juno && <Juno profile={profile.juno}/>}
+      {profile.mino && <Mino profile={profile.mino}/>}
+    </LayoutProfiles>
   )
 }
 

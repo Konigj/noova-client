@@ -13,6 +13,7 @@ interface Props {
     baco_name:string,
     baco_name_textColor:string,
     baco_links:[any],
+    baco_description:string,
     baco_links_bg:string,
     baco_links_textColor:string,
     baco_icons:[any],
@@ -24,8 +25,9 @@ interface Props {
 }
 
 const Baco = ({profile}:Props) => {
-
-  const {baco_bg, baco_Image, baco_name, baco_name_textColor, baco_links, baco_links_bg,baco_links_textColor, baco_icons, baco_icons_color, baco_footer_logo } = profile;
+ 
+  const {baco_bg, baco_Image, baco_name, baco_name_textColor, baco_description, baco_links, baco_links_bg,baco_links_textColor, baco_icons, baco_icons_color, baco_footer_logo } = profile;
+  console.log(baco_description)
 
   console.log(profile)
 
@@ -45,7 +47,11 @@ const Baco = ({profile}:Props) => {
           <h2 className={`${styles.bacoTextName}`}
           style={{color:`${baco_name_textColor}`}}>{baco_name}</h2>
           {
-            //ADD A DESCRIPTION SECTION
+            baco_description && (
+              <div className=' text-left font-medium break-words px-8 whitespace-pre select-text'>
+                <p>{baco_description}</p>
+              </div>
+            )
           }
         </div>
 

@@ -1,0 +1,93 @@
+main .juno::-webkit-scrollbar {
+    width: 10px;
+}
+main .juno::-webkit-scrollbar-thumb {
+border-radius: 50px;
+border: 1px solid rgba(0, 0, 0, 0.2);
+background-color: transparent;
+}
+main .juno::-webkit-scrollbar{
+    border-radius: 50px;
+    background-color: rgba(243, 244, 246, 0.9);
+}
+
+.juno{
+    @apply
+    w-screen sm:max-w-md
+    sm:mx-auto sm:rounded-2xl
+    select-none overflow-x-hidden
+}
+
+
+.junoCover{
+    @apply
+    h-[150px]
+    bg-cover
+    bg-no-repeat
+}
+.junoContainer{
+    @apply
+    relative
+    rounded-[5%]
+    text-center
+    -mt-8
+    w-full
+    min-h-[88vh]
+    overflow-x-hidden
+}
+
+.junoImage{
+    @apply
+    py-5
+    rounded-full
+}
+
+.junoIconsContainer{
+    @apply
+    flex
+    gap-5
+    px-5
+    justify-evenly
+    mx-auto
+    py-5
+
+}
+
+.junoIcon{
+    @apply
+    opacity-80
+    hover:opacity-100
+    hover:scale-105
+}
+
+.junoIcon path{
+    @apply
+    fill-black
+}
+
+.junoLinksContainer{
+    @apply
+    flex
+    flex-col
+    text-left
+    w-[80%]
+    mx-auto
+    lg:p-2
+}
+.junoLink{
+    @apply
+    p-3
+    max-w-full
+    text-xl
+    lg:text-2xl
+    border-b-[0.5px] border-black 
+    opacity-80
+    hover:opacity-100
+    hover:scale-105
+}
+
+.juno .profileFooter path, .juno .profileFooter line{
+    @apply
+    fill-black
+    stroke-black
+}

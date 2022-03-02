@@ -25,6 +25,7 @@
         bg-no-repeat 
         bg-fixed
         bg-cover lg:bg-contain
+        bg-gradient-to-r
     }
     .bacoContainerImage{
         @apply
@@ -68,7 +69,7 @@
         @apply
         flex
         gap-5
-        px-5
+        px-8
         justify-evenly
         md:max-w-lg
         mx-auto
@@ -78,5 +79,5 @@
         @apply
         opacity-80
         hover:opacity-100
-        hover:scale-110
+        hover:scale-105
     }
