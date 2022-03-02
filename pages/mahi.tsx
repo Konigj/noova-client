@@ -55,7 +55,7 @@ const Mahi = ({profile}:Props) => {
         >
           
           <div className={`${styles.bacoContainerImage}`}>
-            <div className={`mx-auto h-[300px] w-[150px] border border-black/20 border-2`}> 
+            <div className={`mx-auto h-[300px] w-[150px] border-black/20 border-2`}> 
               <Image src='https://res.cloudinary.com/noova/image/upload/v1646188537/Perfiles/users/mahi/2422ea5d-e63a-474e-acad-724687c2ba37_i0e8l6.jpg' width={150} height={300} alt='Profile picture' /> 
             </div>
           </div>
