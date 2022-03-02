@@ -51,6 +51,10 @@ const Baco = ({profile}:Props) => {
               </div>
             )
           }
+
+          {
+            //+ and - feature form mahi center
+          }
         </div>
 
         <div className={`${styles.bacoLinks}`}>

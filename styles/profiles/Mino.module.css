@@ -33,10 +33,11 @@ main .mino::-webkit-scrollbar{
     rounded-bl-[10%]
     overflow-hidden
 }
-.corporativeCoverImage{
+.minoCoverImage{
     @apply
     w-full h-full
     bg-cover
+    bg-[position:50%_0%] sm:bg-[position:50%_10%]
 }
 .minoLogo{
     @apply
@@ -53,7 +54,7 @@ main .mino::-webkit-scrollbar{
 .minoText{
     @apply
     px-7
-
+    container
 }
 
 .minoText h2{
@@ -67,12 +68,14 @@ main .mino::-webkit-scrollbar{
     @apply
     font-bold
     text-xl
+    opacity-80
 }
 
 .minoText h5{
     @apply
     font-medium
     text-lg
+    opacity-80
 
 }
 

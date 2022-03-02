@@ -12,39 +12,51 @@ interface Props {
        mino_name_textColor:string,
        mino_description:string,
        mino_ubication:string
-    //   mino_links:[any],
-    //   mino_links_bg:string,
-    //   mino_links_textColor:string,
-    //   mino_icons:[any],
-    //   mino_icons_color:string,
-    //   mino_footer_logo:{
-    //     url:string
-    //   }
-    // }
+       mino_logo:{
+        url:string
+    },
+    mino_icons:object,
+    mino_icons_color:string,
+    mino_links:object,
+    mino_links_textColor:string,
+    mino_links_bg:string,
   }
 }
 
 const Mino = ({profile}: Props) => {
+    console.log(profile)
 
-    const {mino_bg,mino_name, mino_description,mino_ubication  } = profile;
-
+    const {mino_bg, mino_name, mino_description,mino_ubication, mino_logo, mino_icons, mino_icons_color, mino_links, mino_links_textColor, mino_links_bg  } = profile;
 
   return (
-    <main className=''>
-        <section>
-            <div className="corporativoCover">
-                <div className="corporative-cover-image  bg-[position:50%_0%] sm:bg-[position:50%_10%] "
-                    style={{backgroundImage:"url('assets/profiles/corporativo/juan-photo.jpg')"}}>
+    <main className={`${styles.mino}`}>
+        <section className={`${styles.minoWrapper}`}>
+            <div className={`${styles.minoCover}`}>
+                <div className={`${styles.minoCoverImage} `}  
+                    style={{backgroundImage:`url(${mino_bg.url})`}}>
                 </div>
             </div>
         
-            <div className="corporativoText container">
-                <div className="corporativo-logo border-my-blue"
-                    style={{backgroundImage:"url('assets/logos/favicon.svg')"}}>
+            <div className={`${styles.minoText}`}
+            style={{color:mino_icons_color}}>
+                <div className={`${styles.minoLogo} border-my-blue`}
+                    style={{backgroundImage:`url(${mino_logo.url})`}}>
                 </div>
-                <h2 className="corporativo-text-name text-my-blue">JUAN REY</h2>
-                <h4 className="corporativo-text-name text-my-blue/80">Frontend Developer</h4>
-                <h5 className="corporativo-text-name text-my-blue/80">Bogotá D.C.</h5>
+                <h2 className="corporativo-text-name">{mino_name}</h2>
+                <h4 className="corporativo-text-name ">{mino_description}</h4>
+                <h5 className="corporativo-text-name ">{mino_ubication}</h5>
+            </div>
+
+            <div className={`${styles.minoIcons}`}>
+                 <ul className={`${styles.minoIconsContainer}`}>
+           
+                </ul>
+            </div>
+
+            <div className={`${styles.minoLinks}`}>
+                 <ul className={`${styles.minoLinksContainer}`}>
+           
+                </ul>
             </div>
 
 

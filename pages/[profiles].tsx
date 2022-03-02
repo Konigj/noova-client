@@ -51,8 +51,15 @@ interface Props {
          mino_name:string,
          mino_name_textColor:string,
          mino_description:string,
-         mino_ubication:string,
-        
+         mino_ubication:string
+         mino_logo:{
+          url:string
+      },
+      mino_icons:object,
+      mino_icons_color:string,
+      mino_links:object,
+      mino_links_textColor:string,
+      mino_links_bg:string,
       },
       slug:string
     }
