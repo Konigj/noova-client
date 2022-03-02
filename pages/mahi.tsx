@@ -130,8 +130,8 @@ const Mahi = ({profile}:Props) => {
                     <Image src={baco_Image.url} height={100} width={100} alt='mahi logo' />
                 </div>
         
-                <div className='container py-5 flex'>
-                  <div className='w-full lg:w-[120px] hover:scale-105'>
+                <div className='container py-5 flex justify-center'>
+                  <div className='hover:scale-105'>
                     <Link href='/'>
                     <a className='justify-center flex'>
                       <Image src={baco_footer_logo.url}  height='100%' width='100%' alt='noova-footer'/>
