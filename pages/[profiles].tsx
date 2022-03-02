@@ -48,9 +48,10 @@ interface Props {
         juno_profile_image: {
           url:string,
         },
+        juno_bg:string,
         juno_name:string, 
         juno_name_textColor:string, 
-        juno_description:string, 
+        juno_description:string,
         juno_links:[any], 
         juno_links_textColor:string, 
         juno_icons:[any], 
