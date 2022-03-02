@@ -11,7 +11,16 @@ const nextConfig = {
 
     })
     return config
-  }
+  },
+  async redirects() {
+    return [
+      {
+        source: '/mahicenter',
+        destination: '/mahi',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

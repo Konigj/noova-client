@@ -28,7 +28,6 @@ const Mino = ({profile}: Props) => {
 
     const {mino_bg,mino_name, mino_description,mino_ubication  } = profile;
 
-    console.log(profile)
 
   return (
     <main className=''>

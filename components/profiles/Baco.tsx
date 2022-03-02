@@ -27,9 +27,7 @@ interface Props {
 const Baco = ({profile}:Props) => {
  
   const {baco_bg, baco_Image, baco_name, baco_name_textColor, baco_description, baco_links, baco_links_bg,baco_links_textColor, baco_icons, baco_icons_color, baco_footer_logo } = profile;
-  console.log(baco_description)
 
-  console.log(profile)
 
   
   return (
