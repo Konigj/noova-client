@@ -75,8 +75,6 @@ main .mino::-webkit-scrollbar{
     @apply
     font-medium
     text-lg
-    opacity-80
-
 }
 
 .minoIconsContainer{
@@ -92,18 +90,14 @@ main .mino::-webkit-scrollbar{
 
 .minoIcon{
     @apply
-    w-9
-    h-9
+    w-12
+    h-12
     bg-[#EEEEEE]
     rounded-full
     opacity-80
     hover:opacity-100
-    hover:animate-bounce
     hover:scale-105
-}
-
-.minoIcon{
-    @apply
+    hover:scale-105
     flex
     items-center
     justify-center
@@ -118,7 +112,7 @@ main .mino::-webkit-scrollbar{
     mx-auto
 }
 .minoLink{
-    box-shadow: rgba(18, 18, 19, 0.3) 0px 3px 8px;
+    box-shadow: rgba(18, 18, 19, 0.1) 0px 3px 8px;
     @apply
     p-1
     my-3
@@ -126,7 +120,7 @@ main .mino::-webkit-scrollbar{
     max-w-full
     font-bold
     text-xl
-    hover:animate-bounce
+    hover:scale-105
 }
 
 .mino .profileFooter path, .mino .profileFooter line{

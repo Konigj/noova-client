@@ -42,26 +42,46 @@ interface Props {
         }
           }, 
       juno?:{
-        
+        juno_cover:{
+          url:string
+        },
+        juno_profile_image: {
+          url:string,
+        },
+        juno_name:string, 
+        juno_name_textColor:string, 
+        juno_description:string, 
+        juno_links:[any], 
+        juno_links_textColor:string, 
+        juno_icons:[any], 
+        juno_icons_color:string, 
+        juno_footer_logo:{
+          url:string
+        }
       },
       mino?: {
         mino_bg:{
           url:string
-      },
+        },
          mino_name:string,
          mino_name_textColor:string,
          mino_description:string,
          mino_ubication:string
          mino_logo:{
           url:string
+        },
+        mino_icons:[any],
+        mino_icons_color:string,
+        mino_links:[any],
+        mino_links_textColor:string,
+        mino_links_bg:string,
+        mino_footer_logo:{
+          url:string
+        },
       },
-      mino_icons:object,
-      mino_icons_color:string,
-      mino_links:object,
-      mino_links_textColor:string,
-      mino_links_bg:string,
-      },
+      
       slug:string
+      
     }
   }
 

@@ -72,11 +72,11 @@ const Baco = ({profile}:Props) => {
         <div className={`${styles.bacoIcons}`}>
           <ul className={`${styles.bacoIconsContainer}`}>
 
-          {
-                baco_icons.map ( icon => (
-                  <BacoIcon key={icon.id} baco_icons_color={baco_icons_color} icon={icon} />
-                ))
-              }
+            {
+              baco_icons.map ( icon => (
+                <BacoIcon key={icon.id} baco_icons_color={baco_icons_color} icon={icon} />
+              ))
+            }
 
           </ul>
         </div>

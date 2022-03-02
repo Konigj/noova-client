@@ -24,6 +24,8 @@ main .juno::-webkit-scrollbar{
     h-[150px]
     bg-cover
     bg-no-repeat
+    bg-[position:50%_30%] 
+    lg:bg-[position:50%_40%]
 }
 .junoContainer{
     @apply
@@ -60,11 +62,6 @@ main .juno::-webkit-scrollbar{
     hover:scale-105
 }
 
-.junoIcon path{
-    @apply
-    fill-black
-}
-
 .junoLinksContainer{
     @apply
     flex
@@ -76,6 +73,8 @@ main .juno::-webkit-scrollbar{
 }
 .junoLink{
     @apply
+    flex 
+    gap-4
     p-3
     max-w-full
     text-xl
@@ -84,10 +83,4 @@ main .juno::-webkit-scrollbar{
     opacity-80
     hover:opacity-100
     hover:scale-105
-}
-
-.juno .profileFooter path, .juno .profileFooter line{
-    @apply
-    fill-black
-    stroke-black
 }
