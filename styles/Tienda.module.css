@@ -1,0 +1,42 @@
+    .timeline{
+        @apply
+        w-full
+        h-5
+        bg-my-blue
+        grid grid-cols-4
+        justify-items-stretch
+        gap-2 lg:gap-4
+        rounded-full
+        select-text
+    }
+
+    .timelineObject{
+        @apply
+        w-full
+        text-center
+    }
+
+    .timelineNumber{
+        @apply
+        h-7 w-7
+        -mt-[4px]
+        lg:h-10 lg:w-10
+        lg:-mt-[10px]
+        rounded-full
+        border-2
+        border-black 
+        bg-white 
+        mx-auto
+        
+    }
+    .timelineNumber span{
+        @apply
+         text-lg lg:text-3xl
+    }
+
+
+    .timelineText{
+        @apply
+        text-xs lg:text-base
+        pt-2
+    }

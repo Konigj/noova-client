@@ -43,7 +43,6 @@ const Home = ({homeData, productsData} : Props) => {
 
   const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, slider_gallery, cta_title, cta_description, cta_image} = homeData;
 
-
   const typedText = useTypedText(texts)
   return (
     <Layout pageTitle='Inicio'>
@@ -95,7 +94,6 @@ const Home = ({homeData, productsData} : Props) => {
         <section className='py-10 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 '>
           <h1 className='sectionTitle text-white py-5'>{slider_title}</h1>
           <div className='container w-full h-full mt-5 select-none'>
-
             <Swiper 
             effect={"coverflow"}
             spaceBetween={10}
@@ -141,7 +139,6 @@ const Home = ({homeData, productsData} : Props) => {
             </Swiper>
             
           </div>
-            
         </section>
 
         <section className=' py-10 container'>

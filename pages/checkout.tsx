@@ -1,8 +1,15 @@
 import React from 'react'
+import Layout from '../components/Layout/Layout'
 
 const checkout = () => {
   return (
-    <div>checkout</div>
+    <Layout pageTitle='Checkout'>
+      <main className='container'>
+      checkout
+
+
+      </main>
+    </Layout>
   )
 }
 
