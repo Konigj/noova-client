@@ -1,3 +1,4 @@
+
 import Layout from '../../components/Layout/Layout'
 import Timeline from '../../components/Timeline'
 const Leto = () => {
@@ -6,8 +7,6 @@ const Leto = () => {
         <main className='container'>
         <Timeline/>
         Leto
-        
-
         </main>
   </Layout>
   )

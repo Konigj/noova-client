@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react'
+import {gsap} from 'gsap'
 
 import styles from '../../styles/profiles/Leto.module.css';
 import "external-svg-loader";
@@ -28,8 +30,17 @@ const Leto = ({profile}:Props) => {
     leto_links, leto_links_textColor, leto_links_bgColor,
     leto_icons, leto_icons_color, leto_footer_logo } = profile;
 
+    useEffect(() => {
+        const tl = gsap.timeline({ defaults: {ease: "power1.out"}});
+        tl.fromTo('.leto', {opacity: 0.2}, {opacity: 1, duration: 1.5, stagger:0.25});
+        tl.fromTo('.leto-links', {x:'-100%'}, {x:0, duration: 1.5}, '=-1.5');
+        tl.fromTo('.leto-icons', {x:'100%'}, {x:0, duration: 1});
+        tl.fromTo('.profileFooter', {x:'100%'}, {x:0, duration: 1});
+    }, []);
+
+
   return (
-    <main className={`${styles.leto}`}>
+    <main className={`${styles.leto} leto`}>
       <section className={`${styles.letoWrapper} bg-[position:50%_35%]`}
       style={{backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 70%, rgba(18, 18, 19, 0.9)), url(${leto_bg.url})`}}>
 
@@ -37,7 +48,7 @@ const Leto = ({profile}:Props) => {
           <h2 className={``} style={{color:`${leto_name_textColor}`}}>{leto_name}</h2>
         </div>
 
-          <div className={`${styles.letoLinks}`}>
+          <div className={`${styles.letoLinks} leto-links`}>
             <ul className={`${styles.letoLinksContainer}`} style={{textShadow: "rgba(18, 18, 19, 0.9) 0px 1px 4px", color:`${leto_links_textColor}`}}>
               {leto_links.map( link => (
                 <LetoLink key={link.id} link={link} leto_links_bgColor={leto_links_bgColor}/>
@@ -47,7 +58,7 @@ const Leto = ({profile}:Props) => {
             </ul>
           </div>
 
-          <div className={`${styles.letoIcons}`}>
+          <div className={`${styles.letoIcons} leto-icons`}>
             <ul className={`${styles.letoIconsContainer}`}>
               {
                 leto_icons.map ( icon => (
@@ -58,7 +69,7 @@ const Leto = ({profile}:Props) => {
             </ul>
           </div>
 
-          <div className='container py-5'>
+          <div className='container py-5 profileFooter'>
             <div className='w-[120px] mx-auto  hover:scale-105'>
               <Link href='/'>
               <a>

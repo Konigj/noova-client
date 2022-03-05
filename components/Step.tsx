@@ -18,7 +18,7 @@ const Step = ({step}:any) => {
     
     return(
         <div className={`${styles.timelineObject} `}>
-        <Link href={step.url}>
+        <Link href={step.url === '/personaliza'? '#' : step.url}>
             <a>
                 <div className={`${styles.timelineNumber}`}
                 style={{background:`${active? '#2F3C54' : '' }`,color:`${active? '#fff' : '' }` }}>
