@@ -7,9 +7,10 @@ import axios from 'axios'
 import Layout from "../components/Layout/Layout"
 import BenefitsTable from '../components/BenefitsTable'
 import ProductsList from '../components/ProductsList'
-import Step from '../components/Step'
 
-import styles from '../styles/Tienda.module.css'
+
+
+import Timeline from '../components/Timeline'
 
 interface Props {
   productsData:[any], 
@@ -22,45 +23,12 @@ interface Props {
 const Tienda : NextPage = ({productsData, benefitsData}:any) => {
 
 
-  const steps = [
-    { 
-      number: 1,
-      text: 'Elige tu producto',
-      url: '/tienda'
-    },
-    { 
-      number: 2,
-      text: 'Selecciona tu perfil',
-      url: '/perfil'
-    },
-    { 
-      number: 3,
-      text: 'Personalízalo',
-      url: '/personaliza'
-    },
-    { 
-      number: 4,
-      text: 'Checkout',
-      url: '/checkout'
-    },
-]
+  
 
   return (
     <Layout pageTitle='Tienda'>
 
-    <section className={`timeline-section py-10`}>
-        <div className="timeline-container container py-5">
-          <ul className={`${styles.timeline}`}>
-
-          {
-            steps.map( step => (
-              <Step step={step} key={step.number}/>
-            ))
-          }
-          </ul>
-        </div>
-      </section>
-
+    <Timeline/>
 
       <section className='benefits-container container my-5'>
         <header>

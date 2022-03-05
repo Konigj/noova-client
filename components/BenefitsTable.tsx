@@ -11,7 +11,6 @@ interface Props {
 const BenefitsTable = ({table}:Props) => {
 
     const {benefit_section_title,benefits } = table;
-    console.log(benefits)
   return (
     
     <div className='max-w-[800px] mx-auto flex flex-col gap-2 pt-4'>
