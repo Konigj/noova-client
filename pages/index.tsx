@@ -1,9 +1,11 @@
 import type { NextPage } from 'next'
 import { GetStaticProps} from 'next'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
 
+import {gsap} from 'gsap'
 import {Autoplay , EffectCoverflow, Pagination} from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -44,13 +46,23 @@ const Home = ({homeData, productsData} : Props) => {
   const {hero_title, hero_description, hero_image,features_title, featuresIndex, slider_title, slider_gallery, cta_title, cta_description, cta_image} = homeData;
 
   const typedText = useTypedText(texts)
+
+
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: {ease: "power1.out"}});
+    tl.fromTo('.hero__section-text', {x:'-200%'}, {x:0, duration: 2, stagger:0.25});
+    tl.fromTo('.hero__section-image', {x:'200%'}, {x:0, duration: 2, stagger:0.25}, '=-2');
+    tl.fromTo('.products-section', {opacity: 0}, {opacity: 1, duration: 2}, '=-1.5');
+}, []);
+
+  
   return (
     <Layout pageTitle='Inicio'>
       <main>
         <section className='relative w-full py-12 lg:pb-24 bg-gradient-to-r from-cyan-500 to-my-blue'>
          <div className='container flex flex-col lg:flex-row gap-12'>
 
-          <div className='flex flex-1 flex-col lg:items-start lg:w-1/2 z-10 text-white min-h-[300px]'>
+          <div className='hero__section-text flex flex-1 flex-col lg:items-start lg:w-1/2 z-10 text-white min-h-[300px]'>
             <h1 className='text-3xl lg:text-5xl font-extrabold lg:mt-20 pb-4' >{hero_title}</h1>
             <div className='min-h-[32px] lg:min-h-[40px]'>
               <h2 className={`${styles.typing} text-2xl lg:text-4xl font-bold`}>{typedText}</h2>
@@ -66,13 +78,13 @@ const Home = ({homeData, productsData} : Props) => {
               </Link>
           </div>
 
-          <div className='lg:w-1/2'>
+          <div className='lg:w-1/2 hero__section-image'>
             <Image src={hero_image.url} priority width='500px' height='500px' alt='Hero Image'/>
           </div>
          </div>
         </section>
 
-        <section className='container my-5 '>
+        <section className='container my-5 products-section'>
           <div className='text-center py-5'>
             <p>Envíos gratis a toda Colombia</p>
             <h1 className='sectionTitle'>Nuestros Productos</h1>
