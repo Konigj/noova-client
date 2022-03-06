@@ -59,7 +59,7 @@ const Home = ({homeData, productsData} : Props) => {
   return (
     <Layout pageTitle='Inicio'>
       <main>
-        <section className='relative w-full py-12 lg:pb-24 bg-gradient-to-r from-cyan-500 to-my-blue'>
+        <section className=' overflow-x-hidden relative w-full py-12 lg:pb-24 bg-gradient-to-r from-cyan-500 to-my-blue'>
          <div className='container flex flex-col lg:flex-row gap-12'>
 
           <div className='hero__section-text flex flex-1 flex-col lg:items-start lg:w-1/2 z-10 text-white min-h-[300px]'>
