@@ -108,7 +108,9 @@ const Mahi = ({profile}:Props) => {
                           🕒 8:45 - 12:30 pm <br/>
                           🕒 2:00 - 5:30 pm<br/>
                           <br/>
-                          <span className='decoration-cyan-700 underline pb-2'>Jueves y domingo no hay atención</span>
+                          <span className='block decoration-cyan-700 underline pb-2'>Jueves y domingo no hay atención</span>
+                          <span className='block pb-2'>Jueves y domingo no puedes llamar</span>
+                          <span className='decoration-red-700/40 underline pb-2'>Para cancelar tu cita tienes que avisar con dos (2) días de anticipación.</span>
                       </p>
                       <p className='pt-4 font-bold'>
                       

@@ -12,8 +12,8 @@ const ProductSquare = ({product}:any) => {
 
   return (
     <div className='flex flex-col pt-4 justify-end min-h-[400px]'>
-        <div className='mx-auto hover:scale-105 '>
-            <Link href='/tienda' passHref>
+        <div className='mx-auto hover:scale-105 cursor-pointer '>
+            <Link href={`/tienda/${slug}`} passHref>
                 <Image height={imageHeight} width={imageWidth} src={imageUrl} alt={product_title} />
             </Link>
         </div>

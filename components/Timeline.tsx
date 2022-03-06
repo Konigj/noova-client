@@ -23,12 +23,12 @@ const Timeline = () => {
         { 
           number: 2,
           text: 'Selecciona tu perfil',
-          url: '/perfil'
+          url: '/tienda/personalizacion'
         },
         { 
           number: 3,
           text: 'Personalízalo',
-          url: `/personaliza`
+          url: `/tienda/personalización/`
         },
         { 
           number: 4,

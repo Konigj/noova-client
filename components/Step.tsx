@@ -10,7 +10,7 @@ const Step = ({step}:any) => {
     const [active, setActive] = useState(false)
   
     useEffect(() => {
-      if(router.asPath.startsWith(step.url)){
+      if(router.asPath === step.url){
         setActive(true)
       }
       //eslint-disable-next-line
