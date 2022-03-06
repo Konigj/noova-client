@@ -60,13 +60,11 @@ const Mahi = ({profile}:Props) => {
             <meta name="twitter:creator" content="@JuanReyAl"/>
         </Head>
             <main className={`profileContainer  ${styles.baco}`}>
-              <section className={`w-full min-h-screen bg-no-repeat bg-fixed bg-cover lg:bg-contain bg-[position:50%_50%]`}
-              style={{backgroundImage: `linear-gradient(to bottom, rgb(255, 255, 255, 0.2) 70%, rgba(18, 18, 19, 0.3), url('https://res.cloudinary.com/noova/image/upload/v1646188537/Perfiles/users/mahi/2422ea5d-e63a-474e-acad-724687c2ba37_i0e8l6.jpg')`}}
-              >
+              <section className={`w-full min-h-screen bg-no-repeat bg-fixed bg-cover b-[#f7f7f7]`}>
                 
                 <div className={`${styles.bacoContainerImage}`}>
                   <div className={`mx-auto h-[300px] w-[150px] border-black/20 border-2`}> 
-                    <Image src='https://res.cloudinary.com/noova/image/upload/v1646188537/Perfiles/users/mahi/2422ea5d-e63a-474e-acad-724687c2ba37_i0e8l6.jpg' width={150} height={300} alt='Profile picture' /> 
+                    <Image src='https://res.cloudinary.com/noova/image/upload/v1646584451/Perfiles/users/mahi/Mahi_hhonvs.png' width={150} height={300} alt='Profile picture' /> 
                   </div>
                 </div>
         
@@ -75,7 +73,7 @@ const Mahi = ({profile}:Props) => {
                   style={{textShadow: "rgba(255, 255, 255) 0px 1px 4px "}}
                   >{baco_name}</h2>
           
-                  <div className='font-medium break-words px-8 whitespace-pre select-text'>
+                  <div className='font-medium break-words px-8 whitespace-pre select-text container'>
                     <p className='font-bold'>Qué mis manos te alaben Señor</p>
                     <p className=''> Carrera 58 #67A - 55 - Barrio Modelo </p>
                   </div>
@@ -98,9 +96,9 @@ const Mahi = ({profile}:Props) => {
                   <div className={`faq-answer px-5 pb-5 text-justify hidden`}>
                       <p> 
       
-                          -5:00-7:00 am<br/>
-                          -8:45 - 12:30 pm <br/>
-                          -2:00 - 5:30 pm<br/>
+                          🕒 5:00-7:00 am<br/>
+                          🕒 8:45 - 12:30 pm <br/>
+                          🕒 2:00 - 5:30 pm<br/>
                           <br/>
                           <span className='decoration-cyan-700 underline pb-2'>Jueves y domingo no hay atención</span>
                       </p>
