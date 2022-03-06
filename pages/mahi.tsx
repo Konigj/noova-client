@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { GetStaticProps} from 'next'
 import Image from 'next/image';
 import Link from 'next/link';
-import { GetStaticProps} from 'next'
 import axios from 'axios';
 import Head from 'next/head';
+import {gsap} from 'gsap'
 
 import styles from '../styles/profiles/Baco.module.css';
 
@@ -49,6 +50,14 @@ const Mahi = ({profile}:Props) => {
         
     }
 
+        useEffect(() => {
+          const tl = gsap.timeline({ defaults: {ease: "power1.out"}});
+          tl.fromTo('.baco-container-image', {opacity: 0}, {opacity: 1, duration: 2});
+          tl.fromTo('.baco-links', {x:'-100%'}, {x:0, duration: 2}, '=-1.5');
+          tl.fromTo('.profileFooter', {opacity:0}, {opacity:1, duration: 1});
+      }, []);
+
+
     return (
       <>
       <Head>
@@ -62,9 +71,9 @@ const Mahi = ({profile}:Props) => {
             <main className={`profileContainer  ${styles.baco}`}>
               <section className={`w-full min-h-screen bg-no-repeat bg-fixed bg-cover b-[#f7f7f7]`}>
                 
-                <div className={`${styles.bacoContainerImage}`}>
-                  <div className={`mx-auto h-[300px] w-[150px] border-black/20 border-2`}> 
-                    <Image src='https://res.cloudinary.com/noova/image/upload/v1646584451/Perfiles/users/mahi/Mahi_hhonvs.png' width={150} height={300} alt='Profile picture' /> 
+                <div className={`${styles.bacoContainerImage} baco-container-image`}>
+                  <div className={`mx-auto h-[304px] w-[154px] border-black/20 border-2`}> 
+                    <Image src='https://res.cloudinary.com/noova/image/upload/v1646584451/Perfiles/users/mahi/Mahi_hhonvs.png' width={150} height='300px' alt='Profile picture' /> 
                   </div>
                 </div>
         
@@ -74,12 +83,11 @@ const Mahi = ({profile}:Props) => {
                   >{baco_name}</h2>
           
                   <div className='font-medium break-words px-8 whitespace-pre select-text container'>
-                    <p className='font-bold'>Qué mis manos te alaben Señor</p>
                     <p className=''> Carrera 58 #67A - 55 - Barrio Modelo </p>
                   </div>
                 </div>
         
-                <div className={`${styles.bacoLinks}`}>
+                <div className={`${styles.bacoLinks} baco-links`}>
                   <ul className={`${styles.bacoLinksContainer}`}
                     style={{color:`${baco_links_textColor}`}}>
                   
@@ -128,7 +136,7 @@ const Mahi = ({profile}:Props) => {
                     <Image src={baco_Image.url} height={100} width={100} alt='mahi logo' />
                 </div>
         
-                <div className='container py-5 flex justify-center'>
+                <div className='container py-5 flex justify-center profileFooter'>
                   <div className='hover:scale-105'>
                     <Link href='/'>
                     <a className='justify-center flex'>
