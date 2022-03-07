@@ -13,16 +13,13 @@ const LetoPersonalization = () => {
 
   const [letoName, setLetoName] = useState('Tu Nombre');
   const [letoBg, setLetoBg] = useState("https://res.cloudinary.com/noova/image/upload/v1645451363/juan_photo_b3gorr_0d6581ca1d.jpg")
+  const [checked, setChecked] = useState(false);
 
   const previewFile = (e) => {
     
-    let preview = letoBg;
     let file = e.target.files[0];
-    let reader = new FileReader();
-    console.log(file)
-    console.log(reader)
-    
-     reader.onloadend = (e) => {
+    let reader: any = new FileReader();   
+     reader.onloadend = () => {
       setLetoBg(reader.result)
      }
 
@@ -72,13 +69,18 @@ const LetoPersonalization = () => {
     leto_links, leto_links_textColor, leto_links_bgColor,
     leto_icons, leto_icons_color, leto_footer_logo } = profile;
 
+
+    const changeColors = (e) => {
+      e.preventDefault();
+      console.log('hola')
+    }
   
 
   return (
     <Layout pageTitle='Personaliza tu perfil'>
         <main className='container'>
         <Timeline/>
-          <div id="personalization-leto" className="personalization-container flex flex-col lg:flex-row">
+          <div id="personalization-leto" className="personalization-container flex flex-col gap-8 lg:flex-row">
               <div className="personalization-form lg:w-1/2">
                 <form action="https://formsubmit.co/contacto@noova.site" method="POST">
                   <input type="hidden" name="_next" value="https://noova.site/enviado.html"/>
@@ -88,29 +90,52 @@ const LetoPersonalization = () => {
                   
 
                   <div className="form-personalization-container">
+
                     <h3 className="col-span-2 text-center font-bold text-2xl lg:text-3xl mb-5">Personalización Leto</h3>
 
-                    <label className="text-sm opacity-70" htmlFor="profile-name">Nombre del perfil*</label>
-                    <input  onChange={(e)=>setLetoName(e.target.value)} id="leto-profile-name-input" type="text" name="profile-name" size={20} maxLength={20} required/>
+                    <div className='my-5'>
+                      <label className="text-sm opacity-70" htmlFor="profile-slug">Enlace del perfil* - noova.app/...</label>
+                      <input type="text" placeholder='noova.app/TuLink' name="profile-slug" size={20} maxLength={20} required/>
+                      
+                      <label className="text-sm opacity-70" htmlFor="profile-name">Nombre del perfil*</label>
+                      <input  onChange={(e)=>setLetoName(e.target.value)} id="leto-profile-name-input" type="text" name="profile-name" size={20} maxLength={20} required/>
 
-                    <label className="text-sm opacity-70" htmlFor="leto-profile-bg">Imagen de fondo*</label>
-                    <input id="leto-profile-bg-input-file" type="file" onChange={(e) =>previewFile(e)} name="leto-profile-bg"
-                    accept=".jpeg, .jpg, .png, .webp, .svg" required/>
+                      <label className="text-sm opacity-70" htmlFor="leto-profile-bg">Imagen de fondo*</label>
+                      <input id="leto-profile-bg-input-file" type="file" onChange={(e) =>previewFile(e)} name="leto-profile-bg"
+                      accept=".jpeg, .jpg, .png, .webp, .svg" required/>
+                    </div>
 
-                    <div className="color-selection flex flex-row gap-3 py-2">
-                      <h1>Colores:</h1>
-                      <div className="flex flex-col py-1 w-1/3">
-                        <label className="text-sm opacity-70 py-1" htmlFor="profile-name-color">Nombre</label>
-                        <input id="leto-profile-name-color-input" type="color" name="profile-name-color" required/>
-                      </div>
-                      <div className="flex flex-col py-1 w-1/3">
-                      <label className="text-sm opacity-70 py-1" htmlFor="profile-links-bg">Botones</label>
-                      <input  id="leto-profile-links-bg" type="color" name="profile-links-bg" required/>
-                      </div>
-                      <div className="flex flex-col py-1 w-1/3">
-                      <label className="text-sm opacity-70 py-1" htmlFor="profile-links-text-color">Texto</label>
-                      <input id="profile-links-text-color" type="color" name="profile-links-text-color" required/>
+
+                    <div className="color-selection flex flex-col gap-3 py-2">
+                      <h4 className='font-bold'>Colores:</h4>
+
+                      <p className={`text-sm opacity-70 ${checked? 'hidden' : ''}`}>Colores predeterminados:</p>
+                      <div className={`flex flex-row justify-between ${checked? 'hidden' : ''}`}>
+                        <div className="flex flex-col py-1 text-center">
+                          <button onClick={(e)=>changeColors(e)} className='bg-yellow-500 w-[50px] h-[50px] rounded-full'/>
+                          <label className="text-sm opacity-70 py-1" htmlFor="profile-name-color">Amarillo</label>
                         </div>
+                        <div className="flex flex-col py-1 text-center">
+                          <button onClick={(e)=>changeColors(e)} className='bg-red-500 w-[50px] h-[50px] rounded-full'/>
+                          <label className="text-sm opacity-70 py-1" htmlFor="profile-links-bg">Rojo</label>
+                        </div>
+                        <div className="flex flex-col py-1 text-center">
+                          <button onClick={(e)=>changeColors(e)} className='bg-green-500 w-[50px] h-[50px] rounded-full'/>
+                          <label className="text-sm opacity-70 py-1" htmlFor="profile-links-text-color">Verde</label>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col py-1">
+                        <div className='flex flex-row items-baseline w-full'>
+                          <label className="text-sm opacity-70 py-1" htmlFor="profile-links-text-color">¿Quieres elegir otros colores?</label>
+                          <input className='w-fit ml-4' type="checkbox" checked={checked} onChange={()=>setChecked(!checked)} />
+                        </div>
+                        <div className={`${checked? '' : 'hidden'}`}>
+                          <input className='w-[100px] h-[20px]' type="color" name="profile-links-text-color" required/>
+
+                        </div>
+                      </div>
+                        
                     </div>
                     
 
