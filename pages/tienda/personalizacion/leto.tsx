@@ -11,15 +11,31 @@ import styles from '../../../styles/profiles/Leto.module.css'
 
 const LetoPersonalization = () => {
 
-  const [letoName, setLetoName] = useState('Tu Nombre')
+  const [letoName, setLetoName] = useState('Tu Nombre');
+  const [letoBg, setLetoBg] = useState("https://res.cloudinary.com/noova/image/upload/v1645451363/juan_photo_b3gorr_0d6581ca1d.jpg")
 
-  const previewFile = () => {
-    console.log('3')
+  const previewFile = (e) => {
+    
+    let preview = letoBg;
+    let file = e.target.files[0];
+    let reader = new FileReader();
+    console.log(file)
+    console.log(reader)
+    
+     reader.onloadend = (e) => {
+      setLetoBg(reader.result)
+     }
+
+    if(file) {
+        reader.readAsDataURL(file)
+        
+    } 
+
   }
 
   const profile = {
     leto_bg:{
-      url:"https://res.cloudinary.com/noova/image/upload/v1645451363/juan_photo_b3gorr_0d6581ca1d.jpg"
+      url:letoBg
     },
     leto_name: letoName,
     leto_name_textColor:"#fff", 
@@ -78,7 +94,7 @@ const LetoPersonalization = () => {
                     <input  onChange={(e)=>setLetoName(e.target.value)} id="leto-profile-name-input" type="text" name="profile-name" size={20} maxLength={20} required/>
 
                     <label className="text-sm opacity-70" htmlFor="leto-profile-bg">Imagen de fondo*</label>
-                    <input id="leto-profile-bg-input-file" type="file" onChange={() =>previewFile()} name="leto-profile-bg"
+                    <input id="leto-profile-bg-input-file" type="file" onChange={(e) =>previewFile(e)} name="leto-profile-bg"
                     accept=".jpeg, .jpg, .png, .webp, .svg" required/>
 
                     <div className="color-selection flex flex-row gap-3 py-2">
