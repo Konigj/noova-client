@@ -15,7 +15,7 @@ const LetoPersonalization = () => {
   const [letoBg, setLetoBg] = useState("https://res.cloudinary.com/noova/image/upload/v1645451363/juan_photo_b3gorr_0d6581ca1d.jpg")
   const [checked, setChecked] = useState(false);
 
-  const previewFile = (e) => {
+  const previewFile = (e:any) => {
     
     let file = e.target.files[0];
     let reader: any = new FileReader();   
@@ -70,7 +70,7 @@ const LetoPersonalization = () => {
     leto_icons, leto_icons_color, leto_footer_logo } = profile;
 
 
-    const changeColors = (e) => {
+    const changeColors = (e:any) => {
       e.preventDefault();
       console.log('hola')
     }
