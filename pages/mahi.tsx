@@ -83,7 +83,9 @@ const Mahi = ({profile}:Props) => {
                   >{baco_name}</h2>
           
                   <div className='font-medium break-words px-8 whitespace-pre select-text container'>
-                    <p className=''> Carrera 58 #67A - 55 - Barrio Modelo </p>
+                    <p className='font-semibold'> Carrera 58 #67A - 55 - Barrio Modelo </p>
+                    <p className=''> Casa Esquinera blanca con rejas</p>
+                    <p className=''> Entrada al consultorio por el callejón</p>
                   </div>
                 </div>
         
